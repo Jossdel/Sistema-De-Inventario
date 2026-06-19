@@ -1,0 +1,207 @@
+/* ── Tokens ── */
+:root {
+  --nav-height: 52px;
+  --sidebar-collapsed: 64px;
+  --sidebar-expanded: 240px;
+  --bg-glass: rgba(255, 255, 255, 0.72);
+  --bg-hover: rgba(0, 0, 0, 0.05);
+  --border: rgba(0, 0, 0, 0.1);
+  --text-primary: #1d1d1f;
+  --text-secondary: rgba(29, 29, 31, 0.55);
+  --radius: 10px;
+  --font:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+    sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Navbar top bar ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: var(--nav-height);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-family: var(--font);
+}
+
+/* ── Toggle button ── */
+.menu-bars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms var(--ease);
+}
+
+.menu-bars:hover {
+  background: var(--bg-hover);
+}
+.menu-bars:active {
+  transform: scale(0.95);
+}
+
+/* ── Sidebar ── */
+.nav-menu {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  width: var(--sidebar-collapsed);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-right: 0.5px solid var(--border);
+  overflow: hidden;
+  transition: width 260ms var(--ease);
+  font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu.active {
+  width: var(--sidebar-expanded);
+}
+
+/* ── Nav list (ocupa todo el espacio disponible) ── */
+.nav-menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1; /* empuja el user-profile hacia abajo */
+}
+
+/* ── Nav item ── */
+.nav-text {
+  list-style: none;
+}
+
+.nav-text a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition:
+    background 140ms var(--ease),
+    color 140ms var(--ease);
+}
+
+.nav-text a:hover {
+  background: var(--bg-hover);
+}
+.nav-text a:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Ícono nav ── */
+.nav-text a svg,
+.nav-text a .nav-icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  opacity: 0.75;
+}
+
+/* ── Label (oculto cuando colapsado) ── */
+.nav-text span {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition:
+    opacity 200ms var(--ease) 40ms,
+    transform 200ms var(--ease) 40ms;
+  pointer-events: none;
+}
+
+.nav-menu.active .nav-text span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Separador antes del user ── */
+.nav-menu-footer {
+  border-top: 0.5px solid var(--border);
+  padding: 8px;
+}
+
+/* ── User profile (pegado al fondo) ── */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: background 140ms var(--ease);
+}
+
+.user-profile:hover {
+  background: var(--bg-hover);
+}
+
+/* ── Avatar (siempre visible) ── */
+.image-user {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ── Nombre e ícono (ocultos cuando colapsado) ── */
+.user-profile span,
+.user-profile .user-options {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition:
+    opacity 200ms var(--ease) 40ms,
+    transform 200ms var(--ease) 40ms;
+  pointer-events: none;
+}
+
+.nav-menu.active .user-profile span,
+.nav-menu.active .user-profile .user-options {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.user-profile span {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.user-profile .user-options {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
