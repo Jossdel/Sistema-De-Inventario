@@ -1,7 +1,8 @@
-import { Dashboard } from "./pages/Home";
+import { Dashboard } from "./pages/Dashboard";
 import { NavBar } from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { Productos } from "./pages/Products";
 
 function App() {
   const [sideBar, setSideBar] = useState(false);
@@ -21,7 +22,7 @@ function App() {
       >
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/products" element={<Productos />} />
         </Routes>
       </main>
     </BrowserRouter>

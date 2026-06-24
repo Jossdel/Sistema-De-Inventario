@@ -41,7 +41,11 @@ export const NavBar: React.FC<NavBarProps> = ({ sideBar, setSideBar }) => {
 
         <div className="nav-menu-footer">
           <div className="user-profile">
-            <img className="image-user" src="..." alt="user" />
+            <img
+              className="image-user"
+              src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png"
+              alt="user"
+            />
             <span>{dataUser.user}</span>
             <SlOptionsVertical className="user-options" />
           </div>

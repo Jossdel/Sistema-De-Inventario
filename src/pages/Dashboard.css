@@ -1,0 +1,273 @@
+.dashboard {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+    sans-serif;
+  width: 90%;
+}
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.dash-greeting {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin: 0 0 4px;
+}
+
+.dash-sub {
+  font-size: 13px;
+  color: rgba(29, 29, 31, 0.55);
+  margin: 0;
+}
+
+.dash-updated {
+  font-size: 12px;
+  color: rgba(29, 29, 31, 0.4);
+}
+
+/* ── Stat grid ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.stat-card {
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.stat-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.stat-card--blue .stat-icon {
+  background: #e6f1fb;
+  color: #185fa5;
+}
+.stat-card--teal .stat-icon {
+  background: #e1f5ee;
+  color: #0f6e56;
+}
+.stat-card--amber .stat-icon {
+  background: #faeeda;
+  color: #854f0b;
+}
+.stat-card--red .stat-icon {
+  background: #fcebeb;
+  color: #a32d2d;
+}
+.stat-card--gray .stat-icon {
+  background: #f1efe8;
+  color: #5f5e5a;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1d1d1f;
+  line-height: 1.15;
+  margin: 0 0 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(29, 29, 31, 0.55);
+  margin: 0;
+}
+
+.stat-trend {
+  font-size: 11px;
+  color: rgba(29, 29, 31, 0.45);
+  margin: 6px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-trend--up {
+  color: #3b6d11;
+}
+
+.stat-trend--danger {
+  color: #a32d2d;
+}
+
+/* ── Columnas inferiores ── */
+.dash-columns {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .dash-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Alert panel ── */
+.alert-panel {
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.alert-panel__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin: 0 0 12px;
+}
+
+.alert-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
+.alert-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.badge--amber {
+  background: #faeeda;
+  color: #854f0b;
+}
+.badge--red {
+  background: #fcebeb;
+  color: #a32d2d;
+}
+
+.alert-name {
+  flex: 1;
+  font-size: 13px;
+  color: #1d1d1f;
+}
+.alert-stock {
+  font-size: 12px;
+  color: rgba(29, 29, 31, 0.55);
+}
+
+/* ── Top products ── */
+.top-products {
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.top-products__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin: 0 0 12px;
+}
+
+.top-product-row {
+  margin-bottom: 12px;
+}
+.top-product-row:last-child {
+  margin-bottom: 0;
+}
+
+.top-product-row__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #1d1d1f;
+}
+
+.top-product-row__sales {
+  color: rgba(29, 29, 31, 0.55);
+}
+
+.top-product-row__track {
+  background: #f1efe8;
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.top-product-row__bar {
+  background: #378add;
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* ── Recent products table ── */
+.recent-panel {
+  background: #ffffff;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.recent-panel__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin: 0 0 12px;
+}
+
+.recent-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.recent-table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 11px;
+  color: rgba(29, 29, 31, 0.55);
+  padding-bottom: 8px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.recent-table td {
+  padding: 8px 0;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  color: #1d1d1f;
+}
+
+.recent-table tr:last-child td {
+  border-bottom: none;
+}
+
+.recent-table__num {
+  text-align: right;
+}
+
+.recent-table__muted {
+  color: rgba(29, 29, 31, 0.55);
+}
